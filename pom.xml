@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.acloudysky.auth</groupId>
+  <artifactId>aws-auth-client</artifactId>
+  <version>1.0.0</version>
+  
+  <dependencies>
+ 
+	<dependency>
+		<groupId>com.amazonaws</groupId>
+		<artifactId>aws-java-sdk-ec2</artifactId>
+		<version>1.10.23</version>
+	</dependency>
+	
+	
+ 	<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+	<dependency>
+	    <groupId>com.amazonaws</groupId>
+	    <artifactId>aws-java-sdk-s3</artifactId>
+	    <version>1.10.23</version>
+	</dependency>
+ 
+    
+  </dependencies>
+  
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>versiondiff</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.siom79.japicmp</groupId>
+            <artifactId>japicmp-maven-plugin</artifactId>
+            <version>0.5.0</version>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>cmp</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <oldVersion>
+                <dependency>
+                  <groupId>com.amazonaws</groupId>
+                  <artifactId>aws-java-sdk-ec2</artifactId>
+                  <version>RELEASE</version>
+                </dependency>
+              </oldVersion>
+              <newVersion>
+                <file>
+                  <path>${project.build.directory}/${project.artifactId}-${project.version}.jar</path>
+                </file>
+              </newVersion>
+              <parameter>
+                <onlyModified>true</onlyModified>
+                <accessModifier>public</accessModifier>
+                <breakBuildOnModifications>false</breakBuildOnModifications>
+                <breakBuildOnBinaryIncompatibleModifications>false</breakBuildOnBinaryIncompatibleModifications>
+                <onlyBinaryIncompatible>false</onlyBinaryIncompatible>
+              </parameter>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+  <description>AWS Client Authentication</description>
+  
+  
+</project>

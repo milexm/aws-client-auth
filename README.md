@@ -4,7 +4,7 @@ The following is the application class diagram:
 
  ![class diagram](aws-client-auth.gif)
  
-<div style="background-color:lightblue">You need to set up your AWS user's security credentials to be able to use the service REST API.</div>
+📝 You need to set up your AWS user's security credentials to be able to use the service REST API.
  
 You do this by creating a file named **credentials** in the **~/.aws/** on Mac (*C:\Users\USER_NAME\.aws\* on Windows) and saving the following lines in the file:
 
@@ -15,7 +15,7 @@ You do this by creating a file named **credentials** in the **~/.aws/** on Mac (
 For more information, see [Providing AWS Credentials in the AWS SDK for Java](http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/credentials.html) and [Welcome to Identity and Access Management](https://console.aws.amazon.com/iam/home?#security_credential).
 
 
-🚨To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.
+🚨 To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.
 
 📝 At his time the application only provides authentication for EC2 and S3. New service authentication will be added.
 
@@ -84,7 +84,7 @@ The following is an example:
 		// Get the authenticated client. 
 		ec2Client = authClient.getAuthenticatedS3Client(currentRegion);
 
-<div style="background-color:lightblue">When you build your client application, assure that you add this <b>aws-client-auth</b> program in your client application program path.</div> 
+📝 When you build your client application, assure that you add this <b>aws-client-auth</b> program in your client application program path.
 
 ### References
 - [Set up AWS Credentials for Development](http://docs.aws.amazon.com/java-sdk/latest/developer-guide/setup-credentials.html)
