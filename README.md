@@ -1,11 +1,12 @@
 # aws-client-auth
  Creates an authenticated client which is allowed to use the selected service REST API. 
- The following is the application architecture or class diagram:
+The following is the application class diagram: 
 
- ![Architecture](./aws-client-auth.gif)
+ ![class diagram](aws-client-auth.gif)
  
-**Note**. You need to set up your AWS user's security credentials to be able to use the service REST API. 
-You do this by creating a file named **credentials** at *~/.aws/* (*C:\Users\USER_NAME\.aws\* for Windows users) and saving the following lines in the file:
+<div style="background-color:lightblue">You need to set up your AWS user's security credentials to be able to use the service REST API.</div>
+ 
+You do this by creating a file named **credentials** in the **~/.aws/** on Mac (*C:\Users\USER_NAME\.aws\* on Windows) and saving the following lines in the file:
 
 	[default]
 		aws_access_key_id = your access key
@@ -13,15 +14,15 @@ You do this by creating a file named **credentials** at *~/.aws/* (*C:\Users\USE
 
 For more information, see [Providing AWS Credentials in the AWS SDK for Java](http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/credentials.html) and [Welcome to Identity and Access Management](https://console.aws.amazon.com/iam/home?#security_credential).
 
-**WARNING**: To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.
- 
-**Note**. At his time the application only provides authentication for EC2 and S3. New service authentication will be added.
 
+<div style="background-color:orange"><b>WARNING</b>. To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.</div>
 
-----  
+ <div style="background-color:lightblue">At his time the application only provides authentication for EC2 and S3. New service authentication will be added.</div>
+
 
 ## Create AWS Access Credentials
-To access Amazon Web Services, you need an AWS account and AWS credentials. To increase the security of your AWS account, it is recommended to use an Identity Access Management (IAM) user to provide access credentials instead of using your root account credentials
+To access Amazon Web Services, you need an AWS account and AWS credentials. To increase the security of your AWS account, it is recommended to use an Identity Access Management (IAM) user to provide access credentials instead of using your root account credentials.
+
 ### Create IAM User Group
 <ol>
 	<li>In the AWS dashboard click on <strong>Services</strong>.</li>
@@ -77,12 +78,13 @@ In your client application follow these steps:
 The following is an example:
 
 		// Instantiate the AuthenticateAwsServiceClient class. 
-		AuthenticateAwsServiceClient authClient = new AuthenticateAwsServiceClient();
+		AuthenticateAwsServiceClient authClient = 
+		new AuthenticateAwsServiceClient();
 				
 		// Get the authenticated client. 
-		ec2Client = authClient.getAuthenticatedEC2Client(currentRegion);
+		ec2Client = authClient.getAuthenticatedS3Client(currentRegion);
 
-**Note**.When you build your client application, assure that you add this application program in your client application program path. 
+<div style="background-color:lightblue">When you build your client application, assure that you add this <b>aws-client-auth</b> program in your client application program path.</div> 
 
 ### References
 - [Set up AWS Credentials for Development](http://docs.aws.amazon.com/java-sdk/latest/developer-guide/setup-credentials.html)
