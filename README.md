@@ -15,9 +15,9 @@ You do this by creating a file named **credentials** in the **~/.aws/** on Mac (
 For more information, see [Providing AWS Credentials in the AWS SDK for Java](http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/credentials.html) and [Welcome to Identity and Access Management](https://console.aws.amazon.com/iam/home?#security_credential).
 
 
-<div style="background-color:orange"><b>WARNING</b>. To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.</div>
+🚨To avoid accidental leakage of your credentials, DO NOT keep the credentials file in your source directory.
 
- <div style="background-color:lightblue">At his time the application only provides authentication for EC2 and S3. New service authentication will be added.</div>
+📝 At his time the application only provides authentication for EC2 and S3. New service authentication will be added.
 
 
 ## Create AWS Access Credentials
