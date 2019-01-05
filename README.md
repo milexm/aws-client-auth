@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # aws-client-auth
  Creates an authenticated client which is allowed to use the selected service REST API. 
  The following is the application architecture or class diagram:
@@ -91,6 +90,3 @@ The following is an example:
 - [Java Development Blog](http://java.awsblog.com/)
 
 
-=======
-# aws-client-auth
->>>>>>> refs/remotes/origin/master
