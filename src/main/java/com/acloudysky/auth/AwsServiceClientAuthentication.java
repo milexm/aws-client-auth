@@ -28,7 +28,7 @@ import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 public abstract class AwsServiceClientAuthentication {
 	
 	// Debug flag to use for testing purposes.
-	public static boolean DEBUG = true;
+	public static boolean DEBUG = false;
 	
 	// Local class variables. 
 	private String OS, userHome;
@@ -58,8 +58,8 @@ public abstract class AwsServiceClientAuthentication {
 		  credentialsFilePath = userHome.concat("\\" + ".aws\\credentials");
         else 
         	if (OS.startsWith("Mac")) {
-        		// credentialsFilePath = "~/.aws/credentials";
-    			credentialsFilePath = userHome.concat("/.aws/credentials");
+        		credentialsFilePath = "~/.aws/credentials";
+    			// credentialsFilePath = userHome.concat("/.aws/credentials");
     			System.out.println(OS.toString()); }
     	 if (DEBUG) 
     		 // System.out.println(userHome.concat("/.aws/credentials"));
